@@ -1,0 +1,286 @@
+
+
+/*sass variables partial*/
+
+@import "../variables-scss/_variables-home.scss";
+
+/*fonts*/
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+
+body{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display:flex;
+    flex-direction: column;
+    background: $body-color;
+    background: $body-gradient-color;
+}
+
+/*HEADER*/
+
+.home__header{
+    background: $violet-color;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+}
+
+.home__title {
+    font-size: 12px;
+    font-family: $home-title-font;
+    color: $text-color;
+    margin-left: 10px;
+}
+
+.home__navbar {
+    display: flex;
+    justify-content: flex-end;
+    width: 80%;
+    margin-right: 30px;
+  
+}
+
+.home__menu {
+    
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    li {
+        list-style: none;
+        a {
+            margin-right: 10px;
+            text-decoration: none;
+            font-size: 12px;
+            color:$text-color;
+            font-family: $todo-normal-font;
+                &:hover{
+                text-decoration: underline;
+                }
+        }
+    }
+}
+
+//special menu
+
+.menu__container{
+    width: 70%;
+}
+
+#menu {
+    font-family: $todo-normal-font;
+    color: $text-color;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin-left: 30px;
+    width: 90px;
+    height: 150px;
+    margin-top: 140px; 
+}
+.bx {
+    font-size: 20px;
+}
+
+.submenu {
+    margin-left: 10px;
+    padding-left: 15px;
+    display: none;
+    list-style: none;
+    flex-direction: column;
+    width: 100%;
+    height: 40px;
+    background-color: $violet-light-color;
+    opacity: 0.8;
+
+    a { 
+        
+        display: flex;
+        color: $text-color;
+        margin-top: 5px;
+        font-size: 12px;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+
+
+//TITLE
+
+.todo__title{
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    margin-top: 80px;
+    color: $text-color;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    h2 {
+        font-family: $todo-title-font;
+        font-size: 20px;
+    }
+
+ }    
+
+ //INPUT SECTION
+
+.todo__input--container{
+    margin-top: 40px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+    .todo__input {
+        height: 30px;
+        width: 50%;
+        border-radius: 40px;
+        outline: none;
+        border-style: none;
+        background-color: $grey-color;
+        padding-left: 10px;
+        &:hover {
+            background-color: $white-color;
+        }
+    }
+}
+
+.todo__input--button{
+    justify-content: flex-end;
+    padding: 2px;
+    width: 50px;
+    height: 30px;
+    border-radius: 100px;
+    background-color: $violet-color;
+    color: $text-color;
+    outline: none;
+    border-style: none;
+    &:hover {
+        
+        background-color: $violet-light-color;
+    }
+ }
+
+ //SECTION FOR ITEMS ADDED
+
+.todo__section{
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    height: 200px;
+}
+
+.todo__container{
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin-left: 0;
+}
+
+ //JAVASCRIPT ADDED TODO LIST INPUTS
+
+.todo__list--container{
+    display: flex;
+    height: 30px;
+    margin-bottom: 10px;
+    border-bottom: solid $violet-color;
+    margin-right: 10%;
+    margin-left: auto;
+    width: 85%;
+    height: 40px;
+    justify-content: space-between;
+    align-items: center;
+   
+    
+    .todo__list--item{
+        padding-left: 5%;
+        flex: 1;
+        color: $text-color;
+        list-style: none;
+        font-family: $todo-normal-font;      
+    }
+}
+
+.delete__button,
+.check__button {
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    color: $violet-color;
+    background-color: $grey-color;
+    margin-left: 10px;
+    outline: none;
+    border-style: none;
+    &:hover{
+     background-color: $white-color;
+         i {
+        font-size: 20px;
+         pointer-events: none;
+         }
+     } 
+ }     
+   
+.todo__list {
+    padding-left: 0;
+}
+
+ //COMPLETED TASK CLASSLIST
+
+ .checked__animation{
+    border-radius: 5px;
+    transition: 0.7s ease;
+    background-color: $violet-color;
+    opacity: 0.3;
+ }
+
+ .delete__animation {
+     transition: 0.5s ease;
+     transform: translateX(1em);
+     opacity: 0;
+     
+ }
+
+//MEDIA QUERIES
+
+@media (min-width: 600px){
+
+    #menu{
+        display: none;
+    }
+
+    .home__header{
+        height: 60px;
+    }
+    .home__title{
+        font-size: 15px;
+    }
+
+    .home__menu li a {
+        font-size: 15px;
+    }
+
+    .todo__title h2 {
+        font-size: 30px;
+    }
+}
+
+@media (max-width: 599px) {
+
+    .hidden__links{
+        display: none;
+    }
+
+}
