@@ -193,6 +193,7 @@ body{
  //JAVASCRIPT ADDED TODO LIST INPUTS
 
 .todo__list--container{
+    
     display: flex;
     height: 30px;
     margin-bottom: 10px;
@@ -206,6 +207,8 @@ body{
    
     
     .todo__list--item{
+        overflow: hidden;
+        inline-size: 30px;
         padding-left: 5%;
         flex: 1;
         color: $text-color;

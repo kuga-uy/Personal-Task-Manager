@@ -8,8 +8,7 @@ const todoInput = document.querySelector('.todo__input');
 const todoButton = document.querySelector('.todo__input--button');
 const todoList = document.querySelector('.todo__list');
 const menu = document.querySelector('#menu');
-const subMenu = document.querySelectorAll('.submenu');
-
+const subMenuArray = Array.from(document.querySelectorAll('.submenu'));
 
 //functions to add items
 
@@ -33,7 +32,10 @@ todoListContainer.appendChild(todoListItem);
 
 //write the input value
 
-todoListItem.innerHTML = todoInput.value;
+todoListItem.textContent = todoInput.value;
+
+//increase the heigth of container
+(todoInput.value.length > 25) ? todoListContainer.style.height = '70px' : console.log('normal text input');
 
 //clear input
 
@@ -85,15 +87,15 @@ const deleteAndCheck = (el)=> {
 
 //Menu deploy function
 
-    const openMenu = ()=> subMenu.forEach(e => e.style.display = 'block')
-    
+    const openMenu = ()=> subMenuArray.map( element => element.style.display = 'block');
+    const closeMenu = ()=> subMenuArray.map( element => element.style.display = 'none');
 
 // event listeners
 
 todoButton.addEventListener('click', addTodo);
 todoList.addEventListener('click', deleteAndCheck);
-menu.addEventListener('click', openMenu);
-
+menu.addEventListener('mouseover',openMenu);
+menu.addEventListener('mouseleave', closeMenu);
 
     
     

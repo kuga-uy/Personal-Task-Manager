@@ -254,6 +254,8 @@ body {
 }
 
 .todo__list--container .todo__list--item {
+  overflow: hidden;
+  inline-size: 30px;
   padding-left: 5%;
   -webkit-box-flex: 1;
       -ms-flex: 1;
