@@ -11,11 +11,10 @@
 
 
 body{
+    @include flexCenter (column);
     width: 100%;
     margin: 0;
     padding: 0;
-    display:flex;
-    flex-direction: column;
     background: $body-color;
     background: $body-gradient-color;
 }
@@ -23,10 +22,9 @@ body{
 /*HEADER*/
 
 .home__header{
+    @include flexCenter (row);
+    @include size (100%, 50px);
     background: $violet-color;
-    display: flex;
-    height: 50px;
-    width: 100%;
     align-items: center;
 }
 
@@ -38,19 +36,16 @@ body{
 }
 
 .home__navbar {
-    display: flex;
-    justify-content: flex-end;
+    @include flexCenter (row);
     width: 80%;
     margin-right: 30px;
   
 }
 
 .home__menu {
-    
+    @include flexCenter (row);
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 0;
     padding: 0;
     li {
@@ -71,19 +66,19 @@ body{
 //special menu
 
 .menu__container{
-    width: 70%;
+    @include flexCenter (column);
+    width: 30%;
+    margin-right: 30px;
 }
 
 #menu {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    @include size (90px, 150px);
     font-family: $todo-normal-font;
     color: $text-color;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
     padding: 0;
-    margin-left: 30px;
-    width: 90px;
-    height: 150px;
     margin-top: 140px; 
 }
 .bx {
@@ -91,13 +86,12 @@ body{
 }
 
 .submenu {
+    @include size (100%, 40px);
     margin-left: 10px;
     padding-left: 15px;
     display: none;
     list-style: none;
     flex-direction: column;
-    width: 100%;
-    height: 40px;
     background-color: $violet-light-color;
     opacity: 0.8;
 
@@ -119,13 +113,11 @@ body{
 //TITLE
 
 .todo__title{
-    display: flex;
-    justify-content: center;
+    @include flexCenter (column);
+    @include size (100%, 50px);
     height: 60px;
     margin-top: 80px;
     color: $text-color;
-    width: 100%;
-    height: 50px;
     align-items: center;
     h2 {
         font-family: $todo-title-font;
@@ -137,15 +129,13 @@ body{
  //INPUT SECTION
 
 .todo__input--container{
+    @include flexCenter (row);
     margin-top: 40px;
     width: 100%;
-    display: flex;
-    justify-content: center;
     align-items: center;
  
     .todo__input {
-        height: 30px;
-        width: 50%;
+        @include size (50%, 30px);
         border-radius: 40px;
         outline: none;
         border-style: none;
@@ -158,10 +148,9 @@ body{
 }
 
 .todo__input--button{
+    @include size (50px, 30px);
     justify-content: flex-end;
     padding: 2px;
-    width: 50px;
-    height: 30px;
     border-radius: 100px;
     background-color: $violet-color;
     color: $text-color;
@@ -176,32 +165,27 @@ body{
  //SECTION FOR ITEMS ADDED
 
 .todo__section{
+    @include flexCenter (column);
+    @include size (100%, 500px);
     margin-top: 40px;
-    display: flex;
-    justify-content: center;
-    height: 200px;
+    align-items: center;
 }
 
 .todo__container{
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
+
+    @include size (100%, 100%);
+    align-items: center;
     margin-left: 0;
 }
 
  //JAVASCRIPT ADDED TODO LIST INPUTS
 
 .todo__list--container{
-    
+    @include size (85%, 40px);
     display: flex;
-    height: 30px;
     margin-bottom: 10px;
-    border-bottom: solid $violet-color;
     margin-right: 10%;
     margin-left: auto;
-    width: 85%;
-    height: 40px;
     justify-content: space-between;
     align-items: center;
    
@@ -216,11 +200,19 @@ body{
         font-family: $todo-normal-font;      
     }
 }
-
+.empty_alert{
+    padding: 10px;
+    height: 20px;
+    justify-content: center;
+    text-align: center;
+    width:100px;
+    border-radius: 5px;
+    background-color: red;
+    color:$text-color;
+}
 .delete__button,
 .check__button {
-    width: 30px;
-    height: 30px;
+    @include size (30px,30px);
     border-radius: 10px;
     color: $violet-color;
     background-color: $grey-color;
@@ -237,6 +229,7 @@ body{
  }     
    
 .todo__list {
+    margin-top: 50px;
     padding-left: 0;
 }
 
@@ -260,6 +253,10 @@ body{
 
 @media (min-width: 600px){
 
+    .menu__container{
+        display: none;
+    }
+
     #menu{
         display: none;
     }
@@ -270,7 +267,9 @@ body{
     .home__title{
         font-size: 15px;
     }
-
+    .home_menu {
+        margin-right: 10px;
+    }
     .home__menu li a {
         font-size: 15px;
     }
@@ -279,7 +278,9 @@ body{
         font-size: 30px;
     }
 }
-
+    .todo__container{
+        max-width: 60%;
+    }
 @media (max-width: 599px) {
 
     .hidden__links{

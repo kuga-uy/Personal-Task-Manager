@@ -3,7 +3,6 @@
     /*ADD TO LIST */
 
 //selectors
-
 const todoInput = document.querySelector('.todo__input');
 const todoButton = document.querySelector('.todo__input--button');
 const todoList = document.querySelector('.todo__list');
@@ -32,13 +31,25 @@ todoListContainer.appendChild(todoListItem);
 
 //write the input value
 
-todoListItem.textContent = todoInput.value;
+    todoListItem.textContent = todoInput.value;
 
+
+ 
 //increase the heigth of container
 (todoInput.value.length > 25) ? todoListContainer.style.height = '70px' : console.log('normal text input');
 
-//clear input
+//Empty input 
 
+if (todoInput.value == ''){
+    const alert = document.createElement('div');
+    alert.classList.add('empty_alert');
+    alert.innerHTML = '<i class="bx bxs-comment-x"></i> is empty';
+    todoListContainer.appendChild(alert);
+}
+
+
+
+//clear input
 todoInput.value = '';
 
 //CREATE CHECK BUTTON WITH A CLASSNAME AND APPEND IT
@@ -54,13 +65,14 @@ const deleteButton = document.createElement('button');
 deleteButton.classList.add('delete__button');
 todoListContainer.appendChild(deleteButton);
 deleteButton.innerHTML = '<i class="bx bxs-trash"></i>';
-       
-}
-   
 
+}
 //function to delete and check items
+
+
 const deleteAndCheck = (el)=> {
     el.preventDefault();
+   
     //delete button
 
     const targetPosition = el.target
@@ -80,8 +92,6 @@ const deleteAndCheck = (el)=> {
 
     }
 }  
-
-
 
 
 
